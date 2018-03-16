@@ -122,17 +122,23 @@ a {
 }
 
 #menu h2 {
+  margin-top: 0.5em;
   text-align: center;
 }
 
 #menu ol,
 #menu ul {
-  padding: 0;
-  padding-left: 1em;
+  padding-left: 2em;
 }
 
 #menu li {
-  text-align: center;
+  margin-top: 0.4em;
+  width: 100%;
+}
+
+#menu .price {
+  float: right;
+  padding-right: 1em;
 }
 
 /* pseudo-class selector (for different states) */
