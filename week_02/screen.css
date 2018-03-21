@@ -1,0 +1,166 @@
+/* google font import */
+
+@import url('https://fonts.googleapis.com/css?family=Monda');
+@import url('https://fonts.googleapis.com/css?family=Yellowtail');
+
+/* outlines for testing */
+
+/*div {
+  outline: 1px rgba(255,0,0,0.1) solid;
+}*/
+
+/* tag selectors */
+
+body {
+  background-color: #600;
+  color: #2A8;
+  font-family: 'Monda', sans-serif;
+  margin: 0;
+}
+
+h1 {
+  color: #B00;
+  font-family: 'Yellowtail', cursive;
+  font-size: 3em;
+  margin: 0;
+}
+
+h2 {
+  color: #B00;
+  font-family: 'Yellowtail', cursive;
+}
+
+a {
+  color: #DA0;
+  text-decoration: none;
+}
+
+/* id selector (one-off items) */
+
+#logo {
+  padding-left: 25px;
+  width: 320px;
+}
+
+#header {
+  background-color: #DFE;
+  background-image: url(checks.svg), url(checks.svg);
+  background-position: top, bottom;
+  background-repeat: repeat-x;
+  background-size: 35px;
+  border-bottom: white 10px solid;
+  margin-bottom: 40px;
+  padding-top: 50px;
+  padding-bottom: 40px;
+  text-align: center;
+}
+
+#menu {
+  background-color: white;
+  background-image: url(menu-bg.svg);
+  background-size: 42px;
+  border-bottom: #2A8 10px solid;
+  border-top: #2A8 4px solid;
+  display: grid;
+  margin: auto;
+  max-width: 1140px;
+  padding: 20px 0;
+  padding-bottom: 2.5em;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+}
+
+#footer {
+  color: white;
+  font-size: 0.8em;
+  opacity: 0.4;
+  padding: 1em;
+  text-align: center;
+}
+
+/* class selector (multiple instances) */
+
+.menu-items {
+
+}
+
+.btn-yellow {
+  background-color: #FF0;
+  border: 3px solid #BB0;
+  border-radius: 5px;
+  color: #DA0;
+  display: inline-block;
+  padding: 0 10px 2px 10px;
+  transition: background-color 0.5s;
+  transition: color 0.5s;
+}
+
+.btn-yellow:hover {
+  color: #FF0;
+  background-color: #DA0;
+  text-decoration: none;
+  transition: background-color 0.5s;
+  transition: color 0.5s;
+}
+
+/* descendant selectors */
+
+#menu div {
+  grid-column: span 3;
+  margin: 0 1em;
+}
+
+#menu div:nth-child(3) {
+  border-bottom: 3px solid #2A8;
+  border-top: 3px solid #2A8;
+}
+
+#menu h1 {
+  grid-column: span 3;
+  padding-bottom: 0.3em;
+  text-align: center;
+}
+
+#menu h2 {
+  margin-top: 0.5em;
+  text-align: center;
+}
+
+#menu ol,
+#menu ul {
+  padding-left: 2em;
+}
+
+#menu li {
+  margin-top: 0.4em;
+  width: 100%;
+}
+
+#menu .price {
+  float: right;
+  padding-right: 1em;
+}
+
+/* pseudo-class selector (for different states) */
+
+a:hover {
+  color: #DA0;
+  text-decoration: underline;
+}
+
+/* media query */
+
+@media only screen and (min-width: 720px) {
+
+  #menu div {
+    grid-column: auto;
+    margin: 0;
+  }
+
+  #menu div:nth-child(3) {
+    border: none;
+    border-left: 3px solid #2A8;
+    border-right: 3px solid #2A8;
+  }
+
+}
