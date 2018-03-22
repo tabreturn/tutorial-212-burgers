@@ -8,7 +8,7 @@
     <title>212 Burgers</title>
     <meta name="description" content="24 hour food delivery. Order burgers, drinks, fries, and more!" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="screen.css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='screen.css') }}" />
 
   </head>
 
@@ -16,11 +16,11 @@
 
     <div id="header">
 
-      <img src="logo.svg" id="logo" />
+      <img src="{{ url_for('static', filename='logo.svg') }}" id="logo" />
       <h1>Welcome!</h1>
       <em>BURGERS &bull; DRINKS &bull; FRIES</em>
       <p>
-        <a class="btn-yellow" href="order.html"><strong>order now</strong></a>
+        <a class="btn-yellow" href="{{ url_for('order') }}"><strong>order now</strong></a>
       </p>
 
     </div>
