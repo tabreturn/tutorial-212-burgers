@@ -1,22 +1,18 @@
-<!DOCTYPE html>
+{% extends "base.html" %}
 
-<html>
+{% block title %}Order 212 Burgers{% endblock %}
 
-  <head>
+{% block head %}
+    {{ super() }}
+    <style type="text/css">
+      body {
+        text-align: center;
+        background-color: #DFE;
+      }
+    </style>
+{% endblock %}
 
-    <meta charset="utf-8">
-    <title>212 Burgers</title>
-    <meta name="description" content="Order - 24 hour food delivery. Order burgers, drinks, fries, and more!" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="screen.css" />
-
-  </head>
-
-  <body>
-
+{% block content %}
     <h1>Order now</h1>
     0800-212-BURGERS
-
-  </body>
-
-</html>
+{% endblock %}
