@@ -1,11 +1,13 @@
-from flask import Flask
-from flask import abort
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
+# to run:
+# cd to directory
+# export FLASK_APP=run.py
+# export FLASK_DEBUG=1
+# python -m flask run
+
 @app.route('/')
 def index():
-  return '<h1>212 Burgers</h1>'
-
-if __name__ == '__main__':
-  app.run(debug=True)
+  return render_template('index.html', disclaimer='may contain traces of nuts')
