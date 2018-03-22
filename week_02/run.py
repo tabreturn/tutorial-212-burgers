@@ -6,7 +6,7 @@ app = Flask(__name__)
 # cd to directory
 # export FLASK_APP=run.py
 # export FLASK_DEBUG=1
-# python -m flask run
+# flask run
 
 @app.route('/')
 def index():
