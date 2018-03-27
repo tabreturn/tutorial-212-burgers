@@ -11,13 +11,6 @@ app = Flask(__name__)
 
 MENUDB = 'menu.db'
 
-burgers = [
- ['Classic Burger', '$4.99'],
- ['Cheese Burger', '$5.99'],
- ['Chicken Burger', '$5.99'],
- ['Double Burger', '$6.99']
-]
-
 drinks = [
  ['Cola', '$0.99'],
  ['Ginger Ale', '$0.99'],
@@ -35,15 +28,11 @@ sides = [
 @app.route('/')
 def index():
   con = sqlite3.connect(MENUDB)
-  print(con)
-  cur = con.execute('SELECT * FROM burgers')
-  print(cur)
+  cur = con.execute('SELECT burger,price FROM burgers')
+  burgers = []
 
   for row in cur:
-    #print(row)
-    print(row[0]) # id
-    print(row[1]) # burger
-    print(row[2]) # price
+    burgers.append(list(row))
 
   con.close()
 
