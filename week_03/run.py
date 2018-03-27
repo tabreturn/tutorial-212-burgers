@@ -1,4 +1,5 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, g
+import sqlite3
 
 app = Flask(__name__)
 
@@ -7,6 +8,8 @@ app = Flask(__name__)
 # export FLASK_APP=run.py
 # export FLASK_DEBUG=1
 # flask run
+
+MENUDB = 'menu.db'
 
 burgers = [
  ['Classic Burger', '$4.99'],
@@ -31,6 +34,19 @@ sides = [
 
 @app.route('/')
 def index():
+  db = sqlite3.connect(MENUDB)
+  print(db)
+  cursor = db.execute('SELECT * FROM burgers')
+  print(cursor)
+
+  for row in cursor:
+    #print(row)
+    print(row[0]) # id
+    print(row[1]) # burger
+    print(row[2]) # price
+
+  db.close()
+
   return render_template('index.html', disclaimer='may contain traces of nuts', burgers=burgers, drinks=drinks, sides=sides)
 
 @app.route('/order')
