@@ -34,18 +34,18 @@ sides = [
 
 @app.route('/')
 def index():
-  db = sqlite3.connect(MENUDB)
-  print(db)
-  cursor = db.execute('SELECT * FROM burgers')
-  print(cursor)
+  con = sqlite3.connect(MENUDB)
+  print(con)
+  cur = con.execute('SELECT * FROM burgers')
+  print(cur)
 
-  for row in cursor:
+  for row in cur:
     #print(row)
     print(row[0]) # id
     print(row[1]) # burger
     print(row[2]) # price
 
-  db.close()
+  con.close()
 
   return render_template('index.html', disclaimer='may contain traces of nuts', burgers=burgers, drinks=drinks, sides=sides)
 
