@@ -1,7 +1,8 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, session
 import sqlite3
 
 app = Flask(__name__)
+app.secret_key = '9970436dddec6e16b82c62475435623fdbe7fa03'
 
 # to run:
 # cd to directory
@@ -63,9 +64,19 @@ def confirm():
 
 @app.route('/vieworder/<order_id>')
 def viewOrder(order_id):
-  con = sqlite3.connect(MENUDB)
-  cur = con.execute('SELECT * FROM orders WHERE id=?', (order_id,))
-  order = cur.fetchone()
-  con.close()
+  if 'username' in session:
+    con = sqlite3.connect(MENUDB)
+    cur = con.execute('SELECT * FROM orders WHERE id=?', (order_id,))
+    order = cur.fetchone()
+    con.close()
+    return str(order) + ' user: ' + session['username']
+  else:
+    return render_template('login.html')
 
-  return str(order)
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+  if request.method == 'POST' and request.form['username'] == 'admin':
+    session['username'] = request.form['username']
+    return 'Welcome admin!'
+  else:
+    return render_template('login.html')

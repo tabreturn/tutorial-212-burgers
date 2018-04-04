@@ -180,6 +180,10 @@ textarea {
   width: 100%;
 }
 
+#login {
+  text-align: center;
+}
+
 /* pseudo-class selector (for different states) */
 
 a:hover {
