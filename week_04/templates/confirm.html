@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}Order 212 Burgers{% endblock %}
+
+{% block head %}
+    {{ super() }}
+    <style type="text/css">
+      body {
+        background-color: #DFE;
+      }
+    </style>
+{% endblock %}
+
+{% block content %}
+
+    <div id="header">
+      <h1>Confirm</h1>
+      <p>ORDER CONFIRMATION</p>
+    </div>
+
+    <div style="text-align:center">
+
+      <div>
+        <h3>Details</h3>
+        {% for key in details %}
+        <p><strong>{{ key }}:</strong><br />{{ details[key] }}</p>
+        {% endfor %}
+      </div>
+
+      <div>
+        <h3>Items</h3>
+        {% for item in items %}
+        {{ items[item] }} &times; {{ item }}<br />
+        {% endfor %}
+      </div>
+
+      <p>&nbsp;</p>
+      <p>
+        <em>You can expect your delivery to arrive in about 35 minutes. <br />Thanks for ordering from 212 Burgers!</em>
+      </p>
+
+    </div>
+
+{% endblock %}
