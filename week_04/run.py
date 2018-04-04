@@ -6,6 +6,7 @@ app.secret_key = '9970436dddec6e16b82c62475435623fdbe7fa03'
 
 # to run:
 # cd to directory
+# source env/bin/activate
 # export FLASK_APP=run.py; export FLASK_DEBUG=1
 # flask run
 
