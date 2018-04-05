@@ -80,8 +80,8 @@ a {
 
 /* class selector (multiple instances) */
 
-.menu-items {
-
+.center-text {
+  text-align: center;
 }
 
 .btn-yellow {

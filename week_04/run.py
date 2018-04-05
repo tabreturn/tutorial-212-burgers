@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, session
+from flask import Flask, render_template, request, session, redirect, url_for
 import sqlite3
 
 app = Flask(__name__)
@@ -72,12 +72,31 @@ def viewOrder(order_id):
     con.close()
     return str(order) + ' user: ' + session['username']
   else:
-    return render_template('login.html')
+    return redirect(url_for('login')) #render_template('login.html')
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
   if request.method == 'POST' and request.form['username'] == 'admin':
     session['username'] = request.form['username']
-    return 'Welcome admin!'
+    return redirect(url_for('panel'))
   else:
     return render_template('login.html')
+
+@app.route('/panel')
+def panel():
+  orders = []
+  if 'username' in session:
+    con = sqlite3.connect(MENUDB)
+    cur = con.execute('SELECT * FROM orders')
+    for row in cur:
+      orders.append(list(row))
+    con.close()
+    return render_template('panel.html', orders=orders)
+  else:
+    return render_template('login.html')
+
+@app.route('/logout')
+def logout():
+  if 'username' in session:
+    session.pop('username', None)
+  return redirect(url_for('index'))

@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}Panel - 212 Burgers{% endblock %}
+
+{% block head %}
+    {{ super() }}
+    <style type="text/css">
+      body {
+        background-color: #DFE;
+      }
+    </style>
+{% endblock %}
+
+{% block content %}
+
+    <div id="header">
+      <h1>Control Panel</h1>
+      <p>MANAGE KITCHEN ORDERS</p>
+    </div>
+
+    <div class="center-text">
+
+      <h3>Orders</h3>
+
+      {% for order in orders %}
+      <p>
+        {{ order[0] }} &ndash; {{ order[1] }}<br />
+        <a href="/vieworder/{{order[0]}}">view order &gt;</a>
+      </p>
+      {% endfor %}
+
+      <p>&nbsp;</p>
+      <p>
+        <a class="btn-yellow" href="/logout">logout</a>
+      </p>
+
+    </div>
+
+{% endblock %}
