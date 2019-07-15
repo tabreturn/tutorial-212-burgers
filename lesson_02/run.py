@@ -31,8 +31,8 @@ sides = [
 
 @app.route('/')
 def index():
-  return render_template('index.html', disclaimer='may contain traces of nuts', burgers=burgers, drinks=drinks, sides=sides)
+    return render_template('index.html', disclaimer='may contain traces of nuts', burgers=burgers, drinks=drinks, sides=sides)
 
 @app.route('/order')
 def order():
-  return render_template('order.html')
+    return render_template('order.html')
