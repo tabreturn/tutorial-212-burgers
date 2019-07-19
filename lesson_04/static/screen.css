@@ -58,7 +58,7 @@ a {
 #menu {
   background-color: white;
   background-image: url(menu-bg.svg);
-  background-size: 42px;
+  background-size: 46px;
   border-bottom: #2A8 10px solid;
   border-top: #2A8 4px solid;
   display: grid;
