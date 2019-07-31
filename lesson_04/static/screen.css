@@ -184,6 +184,10 @@ textarea {
   text-align: center;
 }
 
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
 /* pseudo-class selector (for different states) */
 
 a:hover {
