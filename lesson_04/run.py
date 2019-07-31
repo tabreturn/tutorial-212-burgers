@@ -63,17 +63,6 @@ def confirm():
 
     return render_template('confirm.html', details=details, items=items)
 
-@app.route('/vieworder/<order_id>')
-def viewOrder(order_id):
-    if 'username' in session:
-        con = sqlite3.connect(MENUDB)
-        cur = con.execute('SELECT * FROM orders WHERE id=?', (order_id,))
-        order = cur.fetchone()
-        con.close()
-        return str(order) + ' user: ' + session['username']
-    else:
-        return redirect(url_for('login')) #render_template('login.html')
-
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST' and request.form['username'] == 'admin':
@@ -94,6 +83,17 @@ def panel():
         return render_template('panel.html', orders=orders)
     else:
         return render_template('login.html')
+
+@app.route('/vieworder/<order_id>')
+def viewOrder(order_id):
+    if 'username' in session:
+        con = sqlite3.connect(MENUDB)
+        cur = con.execute('SELECT * FROM orders WHERE id=?', (order_id,))
+        order = cur.fetchone()
+        con.close()
+        return str(order) + ' user: ' + session['username']
+    else:
+        return redirect(url_for('login')) #render_template('login.html')
 
 @app.route('/logout')
 def logout():
