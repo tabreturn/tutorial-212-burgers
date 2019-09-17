@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block title %}Order - 212 Burgers{% endblock %}
+
+{% block head %}
+    {{ super() }}
+    <style>
+      body {
+        background-color: #DFE;
+      }
+    </style>
+{% endblock %}
+
+{% block content %}
+
+    <div id="header">
+      <h1>Order now</h1>
+      <p>PLACE YOUR ORDER</p>
+    </div>
+
+    <form action="/confirm" method="post">
+
+      <div id="menu">
+
+        <h1>Menu</h1>
+
+        <div>
+          <h2>Burgers</h2>
+          <ul class="menu-items">
+            {% for burger in burgers %}
+            <li><input type="number" min="0" name="{{ burger[0] }}" autocomplete="off" /> {{ burger[0] }} <span class="price">{{ burger[1] }}</span></li>
+            {% endfor %}
+          </ul>
+        </div>
+
+        <div>
+          <h2>Drinks</h2>
+          <ul class="menu-items">
+            {% for drink in drinks %}
+            <li><input type="number" min="0" name="{{ drink[0] }}" autocomplete="off" /> {{ drink[0] }} <span class="price">{{ drink[1] }}</span></li>
+            {% endfor %}
+          </ul>
+        </div>
+
+        <div>
+          <h2>Sides</h2>
+          <ul class="menu-items">
+            {% for side in sides %}
+            <li><input type="number" min="0" name="{{ side[0] }}" autocomplete="off" /> {{ side[0] }} <span class="price">{{ side[1] }}</span></li>
+            {% endfor %}
+          </ul>
+        </div>
+
+      </div>
+
+      <div id="order-details">
+        <p>
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required />
+        </p>
+        <p>
+          <label for="address">Address and delivery instructions:</label>
+          <textarea id="address" name="address" rows="6" required></textarea>
+        </p>
+        <input type="submit" value="order" class="btn-yellow" />
+      </div>
+
+    </form>
+
+{% endblock %}

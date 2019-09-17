@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+
+{% block title %}212 Burgers{% endblock %}
+
+{% block content %}
+    <div id="header">
+
+      <img src="{{ url_for('static', filename='logo.svg') }}" id="logo" />
+      <h1>Welcome!</h1>
+      <em>BURGERS &bull; DRINKS &bull; FRIES</em>
+      <p>
+        <a class="btn-yellow" href="{{ url_for('order') }}">order now</a>
+      </p>
+
+    </div>
+
+    <div id="menu">
+
+      <h1>Menu</h1>
+
+      <div>
+        <h2>Burgers</h2>
+        <ol class="menu-items">
+          {% for burger in burgers %}
+          <li>{{ burger[0] }} <span class="price">{{ burger[1] }}</span></li>
+          {% endfor %}
+        </ol>
+      </div>
+
+      <div>
+        <h2>Drinks</h2>
+        <ul class="menu-items">
+          {% for drink in drinks %}
+          <li>{{ drink[0] }} <span class="price">{{ drink[1] }}</span></li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <div>
+        <h2>Sides</h2>
+        <ul class="menu-items">
+          {% for side in sides %}
+          <li>{{ side[0] }} <span class="price">{{ side[1] }}</span></li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <!-- bootstrap example -->
+
+      <!--
+
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+
+      <div class="container">
+
+        <div class="row">
+          <div class="col-sm-12">
+            <h1>Menu</h1>
+          </div>
+        </div>
+
+        <div class="row">
+
+          <div class="col-sm-12 col-md-4">
+            <h2>Burgers</h2>
+            <ol class="menu-items">
+              <li>Classic Burger</li>
+              <li>Cheese Burger</li>
+              <li>Chicken Burger</li>
+              <li>Double Burger</li>
+            </ol>
+          </div>
+
+          <div class="col-sm-12 col-md-4">
+            <h2>Drinks</h2>
+            <ul class="menu-items">
+              <li>Cola</li>
+              <li>Ginger Ale</li>
+              <li>Beer</li>
+              <li>Coffee</li>
+            </ul>
+          </div>
+
+          <div class="col-sm-12 col-md-4">
+            <h2>Sides</h2>
+            <ul class="menu-items">
+              <li>Fries</li>
+              <li>Onion Rings</li>
+              <li>Crumbed Mushrooms</li>
+              <li>Salad</li>
+            </ul>
+          </div>
+
+        </div>
+
+      </div>
+
+      -->
+
+    </div>
+{% endblock %}
