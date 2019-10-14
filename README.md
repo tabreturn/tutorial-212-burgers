@@ -1,4 +1,4 @@
-# tutorial-212-burgers
+# 212 Burgers
 
 Web app tutorial files (HTML, CSS, Flask, SQLite)
 
