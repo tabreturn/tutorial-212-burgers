@@ -184,8 +184,15 @@ textarea {
   text-align: center;
 }
 
+/* firefox */
 input[type="number"] {
   -moz-appearance: textfield;
+}
+/* chrome, safari, edge, opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 /* pseudo-class selector (for different states) */
