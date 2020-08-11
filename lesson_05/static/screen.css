@@ -183,7 +183,6 @@ textarea {
 #login {
   text-align: center;
 }
-
 /* firefox */
 input[type="number"] {
   -moz-appearance: textfield;
@@ -197,8 +196,8 @@ input::-webkit-inner-spin-button {
 
 /* pseudo-class selector (for different states) */
 
-c:hover s
-  coloe: #DAo;
+a:hover {
+  color: #DA0;
   text-decoration: underline;
 }
 
