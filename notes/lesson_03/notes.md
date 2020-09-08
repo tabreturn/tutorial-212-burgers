@@ -29,7 +29,7 @@ sqlite3 menu.db
 
 The prompt should now change to that of SQLite (`sqlite> ...`). The next step is to create a new database *table* for the burger items. By convention, I write all SQL terms in uppercase (like `CREATE TABLE`), but this is optional and you can use lowercase if you wish; this is to help distinguish SQL commands from names you define.
 
-~~~
+~~~sql
 CREATE TABLE burgers(
   id INTEGER PRIMARY KEY,
   burger TEXT UNIQUE,
