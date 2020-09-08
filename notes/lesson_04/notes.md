@@ -1,7 +1,3 @@
-*289.212.04.workshop*
-
-<!-- markdown-pdf -s md.css -h md.js notes.md -m '{"html":true}' -->
-
 HTML Forms
 ==========
 
@@ -21,7 +17,7 @@ Duplicate the *order.html* template file and name it *confirm.html*. If you are 
 ![](00-duplicate_file.png)
 
 You'll also need to edit the *confirm.html* file. Change the `title`, `h1`, and `p` content, and add a `<div class="center-text">` element:
- 
+
 *confirm.html*
 ```html
 {% extends "base.html" %}

@@ -1,11 +1,7 @@
-*289.212.05.workshop*
-
-<!-- markdown-pdf -s md.css -h md.js notes.md -m '{"html":true}' -->
-
 Sessions
 ========
 
-A session object is a dictionary that contains key-value pairs of session variables and associated values. You'll use a session to manage user logins for 212 Burgers. 
+A session object is a dictionary that contains key-value pairs of session variables and associated values. You'll use a session to manage user logins for 212 Burgers.
 
 Your lecturer/tutor will provide an introduction to sessions and important related concepts. You'll visit wikipedia.org and use your browser inspector to explore some cookie and session data, examining the different key-value pairs, some of which are encrypted.
 
@@ -75,7 +71,7 @@ To access the panel, the user must enter the username, *admin*. There's no passw
 
 ![](01-login_page.png)
 
-Next, create a template for the panel named *panel.html* with the following code: 
+Next, create a template for the panel named *panel.html* with the following code:
 
 *panel.html*
 ```html
@@ -164,7 +160,7 @@ def viewOrder(order_id):
         return redirect(url_for('login')) #render_template('login.html')
 ```
 
-The `<order_id>` is replaced with whatever appears at the end of a URL. For example, for https://localhost/vieworder/1, `order_id` is equal to `1`. That value is passed into the `viewOrder()` function where it's used to query the database. 
+The `<order_id>` is replaced with whatever appears at the end of a URL. For example, for https://localhost/vieworder/1, `order_id` is equal to `1`. That value is passed into the `viewOrder()` function where it's used to query the database.
 
 Click on any order on the panel page to view the details. I haven't bothered with a template for the order details -- those appear in plain-text:
 
@@ -196,6 +192,6 @@ To customise this page, or redirect elsewhere, refer to the following documentat
 
 * https://flask.palletsprojects.com/quickstart#redirects-and-errors
 
-That's as far as these lessons venture into creating a web app for a burger shop. You can add additional features using the skills you've learned in these lessons. For more information on Flask, you can refer to the official documentation. 
+That's as far as these lessons venture into creating a web app for a burger shop. You can add additional features using the skills you've learned in these lessons. For more information on Flask, you can refer to the official documentation.
 
 *end*

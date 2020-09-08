@@ -1,7 +1,3 @@
-*289.212.02.workshop*
-
-<!-- markdown-pdf -s md.css -h md.js notes.md -m '{"html":true}' -->
-
 Version Control
 ===============
 
@@ -66,7 +62,7 @@ You can confirm that you're in the *212-Burgers* directory by listing your files
 
 ![](04-command_line_cd_burgers.png)
 
-Note how the `ls` command lists the contents of the directory you're currently 'in'. 
+Note how the `ls` command lists the contents of the directory you're currently 'in'.
 
 You can use `cd ..` to enter the parent directory (go a folder up). As you've probably guessed, the `cd` command performs a <b>c</b>hange <b>d</b>irectory. To change back to your *212-Burgers* directory, you can use `cd 212-Burgers`.
 
@@ -282,8 +278,8 @@ Then pass the list to your template:
 
 @app.route('/')
 def index():
-    return render_template('index.html', 
-                            disclaimer='may contain traces of nuts', 
+    return render_template('index.html',
+                            disclaimer='may contain traces of nuts',
                             burgers=burgers)
 ```
 
@@ -312,7 +308,7 @@ In this case, you'll need the template to loop through the list of items the `bu
 
 ![](11-template_for_burger.png)
 
-There's a problem, though: you've removed all of the `<span>` elements. Each `burgers` list item contains both the item name and item price. The item name and price, however, should not be stored in the same Python string. This requires a list of lists. 
+There's a problem, though: you've removed all of the `<span>` elements. Each `burgers` list item contains both the item name and item price. The item name and price, however, should not be stored in the same Python string. This requires a list of lists.
 
 Replace the following code in each file and read through it, comparing what you had before to make sense of what is going on:
 

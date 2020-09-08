@@ -1,7 +1,3 @@
-*289.212.01.workshop*
-
-<!-- markdown-pdf -s md.css -h md.js notes.md -m '{"html":true}' -->
-
 HTML & CSS Refresher
 ====================
 
@@ -412,7 +408,7 @@ Create a new file named *order.html*; save it in the same *212-Burgers* director
 </html>
 ```
 
-**Note** that this webpage shares a CSS file with *index.html*. This allows you to reuse CSS across many webpages, and provides a handy way to make site-wide changes in one place. 
+**Note** that this webpage shares a CSS file with *index.html*. This allows you to reuse CSS across many webpages, and provides a handy way to make site-wide changes in one place.
 
 To link to this new order.html page, go back to your index.html code and add a paragraph (`<p>`) with a nested link (`<a>`) element:
 
