@@ -192,7 +192,7 @@ By default, Flask expects that template files are placed in a directory named *t
 
 Now edit the *run.py* code, adding `render_template` to the import (first) line and adjusting the `return` line:
 
-~~~
+~~~python
 from flask import Flask, render_template
 app = Flask(__name__)
 
@@ -212,14 +212,14 @@ Template Variables
 
 Next, you'll pass a variable into the template by including it as an argument for the `render_template` function:
 
-~~~
+~~~python
 ...
     return render_template('index.html', disclaimer='may contain traces of nuts')
 ~~~
 
 To display the disclaimer, add a template variable to the *index.html* file:
 
-~~~
+~~~html
     ...
 
     <div id="footer">
@@ -238,7 +238,7 @@ Filters
 
 Add an `upper` filter to the disclaimer variable so that it displays in uppercase:
 
-~~~
+~~~html
     ...
 
     <div id="footer">
@@ -261,7 +261,7 @@ You can use control structures to control how and what your templates display. F
 
 Add a new burgers list to your *run.py* code:
 
-~~~
+~~~python
 from flask import Flask, render_template
 app = Flask(__name__)
 
@@ -277,7 +277,7 @@ burgers = [
 
 Then pass the list to your template:
 
-~~~
+~~~python
 ...
 
 @app.route('/')
@@ -289,7 +289,7 @@ def index():
 
 In this case, you'll need the template to loop through the list of items the `burgers` variable holds, repeating some HTML code for each value. Edit your *index.html* file:
 
-~~~
+~~~html
     ...
 
     <div id="menu">
@@ -317,7 +317,7 @@ There's a problem, though: you've removed all of the `<span>` elements. Each `bu
 Replace the following code in each file and read through it, comparing what you had before to make sense of what is going on:
 
 *run.py*
-~~~
+~~~python
 from flask import Flask, render_template
 app = Flask(__name__)
 
@@ -332,7 +332,7 @@ burgers = [
 ~~~
 
 *index.html*
-~~~
+~~~html
     ...
 
     <div id="menu">
@@ -368,7 +368,7 @@ Create a new directory named *static*. Move your CSS and graphics files into thi
 
 Now amend the CSS path in your *index.html* document:
 
-~~~
+~~~html
 <!DOCTYPE html>
 
 <html>
@@ -398,7 +398,7 @@ In this case, you'll create an "order" page that inherits all of the features of
 
 First, add a new static link to the landing page:
 
-~~~
+~~~html
   ...
 
     <div id="header">
@@ -417,7 +417,7 @@ The `url_for('order')` will automatically insert the route that matches `order` 
 
 Now, you'll need to dice-up your HTML code into sensible template components. Create an empty new file and save it in the *templates* directory as *base.html*. Copy and paste in the following code:
 
-~~~
+~~~html
 <!DOCTYPE html>
 
 <html>
@@ -451,7 +451,7 @@ What you should note about the above code is that it's actually the *index.html*
 
 Here's the template code to add to your *order.html* file:
 
-~~~
+~~~html
 {% extends "base.html" %}
 
 {% block title %}Order - 212 Burgers{% endblock %}
@@ -477,7 +477,7 @@ Note how the first line indicates that this file extends upon the `"base.html"` 
 
 Now add the following new route to *run.py*:
 
-~~~
+~~~python
 ...
 
 @app.route('/order')
@@ -498,7 +498,7 @@ Study this to understand how Flask has replaced the `{% block ...` code.
 Now strip out what you don't need in the *index.html* file, inheriting what you can from the *base.html* template instead. This leaves you with the following code:
 
 *index.html*
-~~~
+~~~html
 {% extends "base.html" %}
 
 {% block title %}212 Burgers{% endblock %}
