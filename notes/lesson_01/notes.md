@@ -47,7 +47,7 @@ https://developer.mozilla.org/Learn/HTML/Introduction_to_HTML/Getting_started
 Images
 ------
 
-Download the [assets](../../assets). You'll find three SVG images. SVG images are vector-based, so no matter how large you render them, they won't pixelate. Add the images to your *212-Burgers* directory (so that they sit alongside your *index.html* file).
+Download the [assets](../../assets); download all three SVG images. SVG images are vector-based, so no matter how large you render them, they won't pixelate. Add the images to your *212-Burgers* directory (so that they sit alongside your *index.html* file).
 
 Now add an `img` (image) tag to your `body` element. The `src` attribute points to the *logo.svg* file:
 
