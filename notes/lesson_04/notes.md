@@ -23,7 +23,7 @@ Duplicate the *order.html* template file and name it *confirm.html*. If you are 
 You'll also need to edit the *confirm.html* file. Change the `title`, `h1`, and `p` content, and add a `<div class="center-text">` element:
  
 *confirm.html*
-~~~
+~~~html
 {% extends "base.html" %}
 
 {% block title %}Confirm Order - 212 Burgers{% endblock %}
@@ -48,7 +48,7 @@ You'll also need to edit the *confirm.html* file. Change the `title`, `h1`, and 
 
 As you can tell from the `href` attribute, the button links back to the landing page. To center it, add a corresponding CSS rule to your *static/screen.css* file:
 
-~~~
+~~~css
 ...
 
 .center-text {
@@ -61,7 +61,7 @@ As you can tell from the `href` attribute, the button links back to the landing 
 You can now add the route for the confirm page:
 
 *run.py*
-~~~
+~~~python
 ...
 
 @app.route('/confirm')
@@ -84,7 +84,7 @@ Creating an Order Form
 Open the *order.html* template in your editor (Atom?). Add the menu code beneath the PLACE YOUR ORDER paragraph. This is, essentially, the same menu from the landing page with some `input` fields added:
 
 *order.html*
-~~~
+~~~html
 ...
 
 {% block content %}
@@ -152,7 +152,7 @@ http://localhost:5000/order
 The lists are empty because no menu data is provided for the template variables (`burgers`, `drinks`, `sides`). To fix this, edit the `order()` function in *run.py*.
 
 *run.py*
-~~~
+~~~python
 ...
 
 @app.route('/order')
@@ -186,7 +186,7 @@ def order():
 You'll notice, however, that this is an exact duplicate of the `index()` route's query. To avoid having the same code appear twice in the *run.py* file, define a new function, `fetchMenu()` to handle those lines; then edit the `index()` and `order()` functions accordingly:
 
 *run.py*
-~~~
+~~~python
 ...
 
 MENUDB = 'menu.db'
@@ -240,7 +240,7 @@ Save, then refresh the order page:
 The user can specify how many of each item to order. You'll also need the customer's name and address, so add the following order-details code to your form (just before the closing `form` tag):
 
 *order.html*
-~~~
+~~~html
       ...
 
       <div id="order-details">
@@ -269,7 +269,7 @@ Save, then refresh the order page:
 You have all of the input fields you require, but these could do with some styling. Open your style-sheet and add the following rules:
 
 *screen.css*
-~~~
+~~~css
 ...
 
 /* forms */
@@ -318,7 +318,7 @@ Save, then refresh the order page:
 
 There'll be some up/down arrows alongside each number input. To hide those arrows, use this CSS:
 
-~~~
+~~~css
 /* firefox */
 input[type="number"] {
   -moz-appearance: textfield;
@@ -339,7 +339,7 @@ Submitting Form Data to Flask
 
 In the *order.html* file, take note of the `action` and `method` attributes in the opening form tag:
 
-~~~
+~~~html
 <form action="/confirm" method="post">
 ~~~
 
@@ -354,7 +354,7 @@ The `post` method conceals this information, which makes it better suited for su
 Because you'll be submitting form data to the `confirm` route, you must configure it to accept `post` requests -- this entails importing Flask's `request`, and adding a `methods=['POST']` argument to the relevant route line:
 
 *run.py*
-~~~
+~~~python
 from flask import Flask, render_template, request
 
 ...
@@ -376,7 +376,7 @@ The problem is that the confirm page remains is blank:
 Amend your confirm function:
 
 *run.py*
-~~~
+~~~python
 @app.route('/confirm', methods=['POST'])
 def confirm():
     details = {}
@@ -394,7 +394,7 @@ def confirm():
 The `for` loop above prunes the data, omitting any zero or empty values. The refined `details` and `items` dictionaries (or, *associative arrays* in JS-speak) are passed to the template. To render them, add some *Details* and *Items* code to your confirm template:
 
 *confirm.html*
-~~~
+~~~html
 ...
 
 <div class="center-text">
@@ -449,7 +449,7 @@ CREATE TABLE orders(
 Now amend your confirm code, adding the (four) lines for connecting to the database and inserting the data:
 
 *run.py*
-~~~
+~~~python
 @app.route('/confirm', methods=['POST'])
 def confirm():
     details = {}
