@@ -16,7 +16,7 @@ Configuring a Secret Key
 Import the `session` module into your Flask app. At the same time, import `redirect` and `url_for`, which you'll require further along in this lesson. Flask uses a `secret_key` to sign cookies on the client-side cryptographically:
 
 *run.py*
-~~~python
+~~~py
 from flask import Flask, render_template, request, session, redirect, url_for
 import sqlite3
 
@@ -57,7 +57,7 @@ First, create a new *login.html* page (in the *templates* directory). Add the fo
 Add a new route for the login page:
 
 *run.py*
-~~~python
+~~~py
 ...
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -123,7 +123,7 @@ Next, create a template for the panel named *panel.html* with the following code
 Now add a new route for the panel page:
 
 *run.py*
-~~~python
+~~~py
 ...
 
 @app.route('/panel')
@@ -149,7 +149,7 @@ I want to view each order in its own page. For this, I'll use the Flask [variabl
 Add the following route:
 
 *run.py*
-~~~python
+~~~py
 ...
 
 @app.route('/vieworder/<order_id>')
@@ -173,7 +173,7 @@ Click on any order on the panel page to view the details. I haven't bothered wit
 Finally, add a *logout* route that takes the user back to the home page, deleting the session in the process:
 
 *run.py*
-~~~python
+~~~py
 ...
 
 @app.route('/logout')

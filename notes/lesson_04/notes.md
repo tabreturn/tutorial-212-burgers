@@ -61,7 +61,7 @@ As you can tell from the `href` attribute, the button links back to the landing 
 You can now add the route for the confirm page:
 
 *run.py*
-~~~python
+~~~py
 ...
 
 @app.route('/confirm')
@@ -152,7 +152,7 @@ http://localhost:5000/order
 The lists are empty because no menu data is provided for the template variables (`burgers`, `drinks`, `sides`). To fix this, edit the `order()` function in *run.py*.
 
 *run.py*
-~~~python
+~~~py
 ...
 
 @app.route('/order')
@@ -186,7 +186,7 @@ def order():
 You'll notice, however, that this is an exact duplicate of the `index()` route's query. To avoid having the same code appear twice in the *run.py* file, define a new function, `fetchMenu()` to handle those lines; then edit the `index()` and `order()` functions accordingly:
 
 *run.py*
-~~~python
+~~~py
 ...
 
 MENUDB = 'menu.db'
@@ -354,7 +354,7 @@ The `post` method conceals this information, which makes it better suited for su
 Because you'll be submitting form data to the `confirm` route, you must configure it to accept `post` requests -- this entails importing Flask's `request`, and adding a `methods=['POST']` argument to the relevant route line:
 
 *run.py*
-~~~python
+~~~py
 from flask import Flask, render_template, request
 
 ...
@@ -376,7 +376,7 @@ The problem is that the confirm page remains is blank:
 Amend your confirm function:
 
 *run.py*
-~~~python
+~~~py
 @app.route('/confirm', methods=['POST'])
 def confirm():
     details = {}
@@ -449,7 +449,7 @@ CREATE TABLE orders(
 Now amend your confirm code, adding the (four) lines for connecting to the database and inserting the data:
 
 *run.py*
-~~~python
+~~~py
 @app.route('/confirm', methods=['POST'])
 def confirm():
     details = {}

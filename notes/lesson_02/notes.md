@@ -127,7 +127,7 @@ Great! You're ready to run Flask ... almost.
 
 Create a new file in your editor (Atom?), and save it in your `212-Burgers` directory as `run.py`. Add the following code:
 
-~~~python
+~~~py
 from flask import Flask
 app = Flask(__name__)
 
@@ -192,7 +192,7 @@ By default, Flask expects that template files are placed in a directory named *t
 
 Now edit the *run.py* code, adding `render_template` to the import (first) line and adjusting the `return` line:
 
-~~~python
+~~~py
 from flask import Flask, render_template
 app = Flask(__name__)
 
@@ -212,7 +212,7 @@ Template Variables
 
 Next, you'll pass a variable into the template by including it as an argument for the `render_template` function:
 
-~~~python
+~~~py
 ...
     return render_template('index.html', disclaimer='may contain traces of nuts')
 ~~~
@@ -261,7 +261,7 @@ You can use control structures to control how and what your templates display. F
 
 Add a new burgers list to your *run.py* code:
 
-~~~python
+~~~py
 from flask import Flask, render_template
 app = Flask(__name__)
 
@@ -277,7 +277,7 @@ burgers = [
 
 Then pass the list to your template:
 
-~~~python
+~~~py
 ...
 
 @app.route('/')
@@ -317,7 +317,7 @@ There's a problem, though: you've removed all of the `<span>` elements. Each `bu
 Replace the following code in each file and read through it, comparing what you had before to make sense of what is going on:
 
 *run.py*
-~~~python
+~~~py
 from flask import Flask, render_template
 app = Flask(__name__)
 
@@ -477,7 +477,7 @@ Note how the first line indicates that this file extends upon the `"base.html"` 
 
 Now add the following new route to *run.py*:
 
-~~~python
+~~~py
 ...
 
 @app.route('/order')

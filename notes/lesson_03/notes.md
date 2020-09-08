@@ -346,7 +346,7 @@ Connecting to SQLite
 
 To begin, you'll need to import the relevant libraries. At the top of your *run.py*, make the following additions (the `g` on the end of the first line, and the new `import` line):
 
-~~~python
+~~~py
 from flask import Flask, render_template, g
 import sqlite3
 
@@ -356,7 +356,7 @@ app = Flask(__name__)
 
 Add a new `MENUDB` variable that holds your database file name:
 
-~~~python
+~~~py
 app = Flask(__name__)
 
 MENUDB = 'menu.db'
@@ -368,7 +368,7 @@ By convention, one uses uppercase letters for *constants* in Python. Constants a
 
 In your index function, add the following lines:
 
-~~~python
+~~~py
 @app.route('/')
 def index():
     db = sqlite3.connect(MENUDB)
@@ -389,7 +389,7 @@ Now that you've connected to the database, you can query it.
 
 Add some code to select all of the items in the burger table:
 
-~~~python
+~~~py
 @app.route('/')
 def index():
     db = sqlite3.connect(MENUDB)
@@ -413,7 +413,7 @@ The `cur` variable (short for *cursor*) is equal to whatever the query within `d
 
 You should always add a `db.close()` when you're done dealing with the database in your Python script. This isn't critical for queries (reading the DB), but it's vital when you're using Flask to make changes to the database (writing to the DB).
 
-~~~python
+~~~py
     ...
     for row in cur:
         print(row)
@@ -439,7 +439,7 @@ burgers = [
 
 Next, replace this code:
 
-~~~python
+~~~py
     ...
     cur = db.execute('SELECT * FROM burgers')
     for row in cur:
@@ -450,7 +450,7 @@ Next, replace this code:
 
 with this:
 
-~~~python
+~~~py
     ...
     burgers = []
     cur = db.execute('SELECT burger,price FROM burgers')
@@ -472,13 +472,13 @@ Be very careful when you're using `INSERT` with data that is entered via a form.
 
 To thwart such exploits, you'll parameterise your arguments. This isn't necessary just yet. To give you an idea of how this works, here are examples of un-parameterised and parameterised code:
 
-~~~python
+~~~py
 # un-parameterised
 address_from_form = ...
 db.execute('UPDATE order5 SET address = ' + address_from_form)
 ~~~
 
-~~~python
+~~~py
 # parameterised
 address_from_form = ...
 db.execute('UPDATE order5 SET address = ?', (address_from_form,))
