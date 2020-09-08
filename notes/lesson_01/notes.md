@@ -20,7 +20,7 @@ HTML (Hypertext Markup Language) is the language for creating web-pages. HTML do
 
 Create a new directory named "212-Burgers". Open up your preferred code editor (Atom? Brackets? other?); create a new file; and save it as "index.html" (in your 212-Burgers directory). Now add the following code:
 
-~~~html
+```html
 <!DOCTYPE html>
 
 <html>
@@ -39,7 +39,7 @@ Create a new directory named "212-Burgers". Open up your preferred code editor (
   </body>
 
 </html>
-~~~
+```
 
 Every HTML document will begin something like this. Of course, you'll change the `<title>` and `<meta name="description" ...` information for each project.
 
@@ -55,7 +55,7 @@ Grab the *289.212.01.files* download from Stream. You'll find three SVG images i
 
 Now add an `img` (image) tag to your `body` element. The `src` attribute points to the *logo.svg* file:
 
-~~~html
+```html
   ...
 
   <body>
@@ -63,7 +63,7 @@ Now add an `img` (image) tag to your `body` element. The `src` attribute points 
   </body>
 
 </html>
-~~~
+```
 
 Save your code, then refresh your web browser:
 
@@ -78,7 +78,7 @@ Elements like `div` and `h1` are block-level elements; they'll sit on their own 
 
 Add a heading and italic line:
 
-~~~html
+```html
   ...
 
   <body>
@@ -94,7 +94,7 @@ Add a heading and italic line:
   </body>
 
 </html>
-~~~
+```
 
 ![](02-block_and_inline.png)
 
@@ -106,7 +106,7 @@ https://developer.mozilla.org/Glossary/Entity
 
 Now add a menu that uses a mix of elements:
 
-~~~html
+```html
   ...
 
   <body>
@@ -158,7 +158,7 @@ Now add a menu that uses a mix of elements:
   </body>
 
 </html>
-~~~
+```
 
 ![](03-block_and_inline_menu.png)
 
@@ -171,7 +171,7 @@ CSS (Cascading Style Sheets) is a language that works hand-in-hand with HTML to 
 
 Create a new file named *screen.css*. Save it in the same 212-Burgers directory as all of your other files. Add the following code to the new *screen.css* file:
 
-~~~css
+```css
 /* id selector (one-off items) */
 
 #logo {
@@ -191,13 +191,13 @@ Create a new file named *screen.css*. Save it in the same 212-Burgers directory 
   padding-bottom: 40px;
   text-align: center;
 }
-~~~
+```
 
 **Note** that CSS comments are opened with a `/*` and closed with a `*/`.
 
 Recall that you have an `id="..."` attribute on your `<div id="header">` and `<img src="logo.svg" id="logo" />` elements. Any CSS rule beginning with a `#` will match elements with a corresponding `id` attribute. But, you have yet to link *screen.css* to the *index.html* file. Add a `link` line to the `head` element:
 
-~~~html
+```html
 ...
 
   <head>
@@ -206,7 +206,7 @@ Recall that you have an `id="..."` attribute on your `<div id="header">` and `<i
     <link rel="stylesheet" href="screen.css" />
 
   </head>
-~~~
+```
 
 Ensure that you save both files. Refresh your browser.
 
@@ -214,7 +214,7 @@ Ensure that you save both files. Refresh your browser.
 
 To style elements with no `id` attribute, use selectors named after the tag itself (with no `#`). Add the following code to your screen.css:
 
-~~~css
+```css
 /* tag selectors */
 
 body {
@@ -240,20 +240,20 @@ a {
   color: #DA0;
   text-decoration: none;
 }
-~~~
+```
 
 ![](05-css_tags.png)
 
 It's getting closer, but, among other issues, the fonts are wrong. You'll have noticed that the font-families `'Monda'` and `'Yellowtail'` referenced in the CSS. But your computer (and that of your visitor's) is unlikely to have those fonts installed. However, they're both available in the Google fonts collection. To load them, add the following lines *to the top* of your CSS file:
 
-~~~css
+```css
 /* google font import */
 
 @import url('https://fonts.googleapis.com/css?family=Monda');
 @import url('https://fonts.googleapis.com/css?family=Yellowtail');
 
 ...
-~~~
+```
 
 ![](06-css_fonts.png)
 
@@ -269,7 +269,7 @@ https://developer.mozilla.org/Learn/CSS/Introduction_to_CSS/Box_model
 
 Add the following CSS code to style your menu, paying attention to any `padding`, `border`, and `margin`, and how those properties affect the block-level elements you target:
 
-~~~css
+```css
 ...
 
 #menu {
@@ -314,7 +314,7 @@ Add the following CSS code to style your menu, paying attention to any `padding`
   float: right;
   padding-right: 1em;
 }
-~~~
+```
 
 In this case, you're using a CSS `grid` layout to get the lists sitting alongside one another. CSS frameworks -- such as [Bootstrap](https://getbootstrap.com/) or [Skeleton](http://getskeleton.com/) -- could also work for this job.
 
@@ -322,11 +322,11 @@ In this case, you're using a CSS `grid` layout to get the lists sitting alongsid
 
 The following CSS rule is useful if you wish to visualise the boxes:
 
-~~~css
+```css
 * {
   outline: 1px rgba(255,0,0,0.1) solid;
 }
-~~~
+```
 
 You can add this to the top of your *screen.css* file to draw outlines around all of your HTML elements.
 
@@ -341,7 +341,7 @@ This means that your website isn't much good for mobile devices, and this is whe
 
 Add the following code to your CSS document:
 
-~~~css
+```css
 ...
 
 #menu div {
@@ -370,7 +370,7 @@ Add the following code to your CSS document:
   }
 
 }
-~~~
+```
 
 The CSS above the `/* media query */` comment targets mobile, while the code within the `@media` block targets screens over 720 pixels wide. The layout now switches between three-column and single-column arrangements as you resize the browser window:
 
@@ -385,7 +385,7 @@ A website isn't really a website unless you can click on stuff!
 
 Create a new file named *order.html*; save it in the same *212-Burgers* directory as the rest of your project files. Add the following code to the *order.html* file:
 
-~~~html
+```html
 <!DOCTYPE html>
 
 <html>
@@ -410,13 +410,13 @@ Create a new file named *order.html*; save it in the same *212-Burgers* director
   </body>
 
 </html>
-~~~
+```
 
 **Note** that this webpage shares a CSS file with *index.html*. This allows you to reuse CSS across many webpages, and provides a handy way to make site-wide changes in one place. 
 
 To link to this new order.html page, go back to your index.html code and add a paragraph (`<p>`) with a nested link (`<a>`) element:
 
-~~~html
+```html
   ...
 
     <div id="header">
@@ -429,11 +429,11 @@ To link to this new order.html page, go back to your index.html code and add a p
       </p>
 
     ...
-~~~
+```
 
 Now add the following code to your CSS file:
 
-~~~css
+```css
 /* button */
 
 .btn-yellow {
@@ -456,7 +456,7 @@ Now add the following code to your CSS file:
   transition: background-color 0.5s;
   transition: color 0.5s;
 }
-~~~
+```
 
 This code includes a hover effect. That is, when you mouse-over the button, there's some animation. Test this out and confirm that the button directs to the order page.
 
@@ -467,7 +467,7 @@ Footer
 
 Finally, add the footer to your index.html file:
 
-~~~html
+```html
     ...
 
     <div id="footer">
@@ -477,11 +477,11 @@ Finally, add the footer to your index.html file:
   </body>
 
 </html>
-~~~
+```
 
 -- as well its CSS:
 
-~~~css
+```css
 #footer {
   color: white;
   font-size: 0.8em;
@@ -489,7 +489,7 @@ Finally, add the footer to your index.html file:
   padding: 1em;
   text-align: center;
 }
-~~~
+```
 
 That's it for workshop 01.
 

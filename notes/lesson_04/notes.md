@@ -23,7 +23,7 @@ Duplicate the *order.html* template file and name it *confirm.html*. If you are 
 You'll also need to edit the *confirm.html* file. Change the `title`, `h1`, and `p` content, and add a `<div class="center-text">` element:
  
 *confirm.html*
-~~~html
+```html
 {% extends "base.html" %}
 
 {% block title %}Confirm Order - 212 Burgers{% endblock %}
@@ -44,11 +44,11 @@ You'll also need to edit the *confirm.html* file. Change the `title`, `h1`, and 
     </div>
 
 {% endblock %}
-~~~
+```
 
 As you can tell from the `href` attribute, the button links back to the landing page. To center it, add a corresponding CSS rule to your *static/screen.css* file:
 
-~~~css
+```css
 ...
 
 .center-text {
@@ -56,18 +56,18 @@ As you can tell from the `href` attribute, the button links back to the landing 
 }
 
 ...
-~~~
+```
 
 You can now add the route for the confirm page:
 
 *run.py*
-~~~py
+```py
 ...
 
 @app.route('/confirm')
 def confirm():
     return render_template('confirm.html')
-~~~
+```
 
 Open your browser and load the confirm page:  
 http://localhost:5000/confirm
@@ -84,7 +84,7 @@ Creating an Order Form
 Open the *order.html* template in your editor (Atom?). Add the menu code beneath the PLACE YOUR ORDER paragraph. This is, essentially, the same menu from the landing page with some `input` fields added:
 
 *order.html*
-~~~html
+```html
 ...
 
 {% block content %}
@@ -140,7 +140,7 @@ Open the *order.html* template in your editor (Atom?). Add the menu code beneath
     </form>
 
 {% endblock %}
-~~~
+```
 
 The `type` attribute for each field is equal to `number`; this is for numeric input (as opposed to letters and other characters).
 
@@ -152,7 +152,7 @@ http://localhost:5000/order
 The lists are empty because no menu data is provided for the template variables (`burgers`, `drinks`, `sides`). To fix this, edit the `order()` function in *run.py*.
 
 *run.py*
-~~~py
+```py
 ...
 
 @app.route('/order')
@@ -181,12 +181,12 @@ def order():
 
 @app.route('/confirm')
 ...
-~~~
+```
 
 You'll notice, however, that this is an exact duplicate of the `index()` route's query. To avoid having the same code appear twice in the *run.py* file, define a new function, `fetchMenu()` to handle those lines; then edit the `index()` and `order()` functions accordingly:
 
 *run.py*
-~~~py
+```py
 ...
 
 MENUDB = 'menu.db'
@@ -231,7 +231,7 @@ def order():
     return render_template('order.html', burgers=menu['burgers'], drinks=menu['drinks'], sides=menu['sides'])
 
 ...
-~~~
+```
 
 Save, then refresh the order page:
 
@@ -240,7 +240,7 @@ Save, then refresh the order page:
 The user can specify how many of each item to order. You'll also need the customer's name and address, so add the following order-details code to your form (just before the closing `form` tag):
 
 *order.html*
-~~~html
+```html
       ...
 
       <div id="order-details">
@@ -258,7 +258,7 @@ The user can specify how many of each item to order. You'll also need the custom
     </form>
 
 {% endblock %}
-~~~
+```
 
 Save, then refresh the order page:
 
@@ -269,7 +269,7 @@ Save, then refresh the order page:
 You have all of the input fields you require, but these could do with some styling. Open your style-sheet and add the following rules:
 
 *screen.css*
-~~~css
+```css
 ...
 
 /* forms */
@@ -310,7 +310,7 @@ textarea {
 }
 
 ...
-~~~
+```
 
 Save, then refresh the order page:
 
@@ -318,7 +318,7 @@ Save, then refresh the order page:
 
 There'll be some up/down arrows alongside each number input. To hide those arrows, use this CSS:
 
-~~~css
+```css
 /* firefox */
 input[type="number"] {
   -moz-appearance: textfield;
@@ -329,7 +329,7 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-~~~
+```
 
 In addition to the built-in browser validation, you could add some JavaScript validation -- then further validate the input using Python -- but, to keep things simple, this tutorial will not cover such techniques.
 
@@ -339,9 +339,9 @@ Submitting Form Data to Flask
 
 In the *order.html* file, take note of the `action` and `method` attributes in the opening form tag:
 
-~~~html
+```html
 <form action="/confirm" method="post">
-~~~
+```
 
 The `method` can either be `get` or `post`. `get` passes all of the form data across the address bar; for example, one can search Google for "dog" using the following URL:
 
@@ -354,7 +354,7 @@ The `post` method conceals this information, which makes it better suited for su
 Because you'll be submitting form data to the `confirm` route, you must configure it to accept `post` requests -- this entails importing Flask's `request`, and adding a `methods=['POST']` argument to the relevant route line:
 
 *run.py*
-~~~py
+```py
 from flask import Flask, render_template, request
 
 ...
@@ -363,7 +363,7 @@ from flask import Flask, render_template, request
 def confirm():
     print(request.form)
     return render_template('confirm.html')
-~~~
+```
 
 The `print(request.form)` line will print whatever Flask captures to the Terminal. You can test this out by placing an order using the order form (and clicking "order" button). In this example, Joe of 1 Wallace street has ordered 2 Classic Burgers:
 
@@ -376,7 +376,7 @@ The problem is that the confirm page remains is blank:
 Amend your confirm function:
 
 *run.py*
-~~~py
+```py
 @app.route('/confirm', methods=['POST'])
 def confirm():
     details = {}
@@ -389,12 +389,12 @@ def confirm():
             items[input] = request.form[input]
 
     return render_template('confirm.html', details=details, items=items)
-~~~
+```
 
 The `for` loop above prunes the data, omitting any zero or empty values. The refined `details` and `items` dictionaries (or, *associative arrays* in JS-speak) are passed to the template. To render them, add some *Details* and *Items* code to your confirm template:
 
 *confirm.html*
-~~~html
+```html
 ...
 
 <div class="center-text">
@@ -424,7 +424,7 @@ The `for` loop above prunes the data, omitting any zero or empty values. The ref
 </div>
 
 {% endblock %}
-~~~
+```
 
 Save, then refresh the confirm page. Refreshing will resubmit the data, which saves you having to re-fill-out the order form.
 
@@ -435,21 +435,21 @@ Entering Orders Data into the Database
 
 Open your database (in a new Terminal window) using `sqlite3 menu.db`. Create a new table:
 
-~~~
+```
 CREATE TABLE orders(
   id INTEGER PRIMARY KEY,
   name TEXT,
   address TEXT,
   items TEXT
 );
-~~~
+```
 
 ![](09-db_create_table.png)
 
 Now amend your confirm code, adding the (four) lines for connecting to the database and inserting the data:
 
 *run.py*
-~~~py
+```py
 @app.route('/confirm', methods=['POST'])
 def confirm():
     details = {}
@@ -470,14 +470,14 @@ def confirm():
     con.close()
 
     return render_template('confirm.html', details=details, items=items)
-~~~
+```
 
 The `(?, ?, ?)` part -- split across two lines to make it more legible -- is substituted by the variables in brackets that follow it. This will prevent SQL injection attacks. The `con.commit()` is necessary because you are performing a change to the database. The `str()` function converts the dictionary to a string.
 
 Refresh the confirm page. You can verify that your data is entered in the SQLite database by running:
 
-~~~
+```
 SELECT * FROM orders;
-~~~
+```
 
 *end*
