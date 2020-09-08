@@ -20,7 +20,7 @@ HTML (Hypertext Markup Language) is the language for creating web-pages. HTML do
 
 Create a new directory named "212-Burgers". Open up your preferred code editor (Atom? Brackets? other?); create a new file; and save it as "index.html" (in your 212-Burgers directory). Now add the following code:
 
-~~~
+~~~html
 <!DOCTYPE html>
 
 <html>
