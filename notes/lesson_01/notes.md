@@ -55,7 +55,7 @@ Grab the *289.212.01.files* download from Stream. You'll find three SVG images i
 
 Now add an `img` (image) tag to your `body` element. The `src` attribute points to the *logo.svg* file:
 
-~~~
+~~~html
   ...
 
   <body>
@@ -78,7 +78,7 @@ Elements like `div` and `h1` are block-level elements; they'll sit on their own 
 
 Add a heading and italic line:
 
-~~~
+~~~html
   ...
 
   <body>
@@ -106,7 +106,7 @@ https://developer.mozilla.org/Glossary/Entity
 
 Now add a menu that uses a mix of elements:
 
-~~~
+~~~html
   ...
 
   <body>
@@ -171,7 +171,7 @@ CSS (Cascading Style Sheets) is a language that works hand-in-hand with HTML to 
 
 Create a new file named *screen.css*. Save it in the same 212-Burgers directory as all of your other files. Add the following code to the new *screen.css* file:
 
-~~~
+~~~css
 /* id selector (one-off items) */
 
 #logo {
@@ -197,7 +197,7 @@ Create a new file named *screen.css*. Save it in the same 212-Burgers directory 
 
 Recall that you have an `id="..."` attribute on your `<div id="header">` and `<img src="logo.svg" id="logo" />` elements. Any CSS rule beginning with a `#` will match elements with a corresponding `id` attribute. But, you have yet to link *screen.css* to the *index.html* file. Add a `link` line to the `head` element:
 
-~~~
+~~~html
 ...
 
   <head>
@@ -214,7 +214,7 @@ Ensure that you save both files. Refresh your browser.
 
 To style elements with no `id` attribute, use selectors named after the tag itself (with no `#`). Add the following code to your screen.css:
 
-~~~
+~~~css
 /* tag selectors */
 
 body {
@@ -246,7 +246,7 @@ a {
 
 It's getting closer, but, among other issues, the fonts are wrong. You'll have noticed that the font-families `'Monda'` and `'Yellowtail'` referenced in the CSS. But your computer (and that of your visitor's) is unlikely to have those fonts installed. However, they're both available in the Google fonts collection. To load them, add the following lines *to the top* of your CSS file:
 
-~~~
+~~~css
 /* google font import */
 
 @import url('https://fonts.googleapis.com/css?family=Monda');
@@ -269,7 +269,7 @@ https://developer.mozilla.org/Learn/CSS/Introduction_to_CSS/Box_model
 
 Add the following CSS code to style your menu, paying attention to any `padding`, `border`, and `margin`, and how those properties affect the block-level elements you target:
 
-~~~
+~~~css
 ...
 
 #menu {
@@ -322,7 +322,7 @@ In this case, you're using a CSS `grid` layout to get the lists sitting alongsid
 
 The following CSS rule is useful if you wish to visualise the boxes:
 
-~~~
+~~~css
 * {
   outline: 1px rgba(255,0,0,0.1) solid;
 }
@@ -341,7 +341,7 @@ This means that your website isn't much good for mobile devices, and this is whe
 
 Add the following code to your CSS document:
 
-~~~
+~~~css
 ...
 
 #menu div {
@@ -385,7 +385,7 @@ A website isn't really a website unless you can click on stuff!
 
 Create a new file named *order.html*; save it in the same *212-Burgers* directory as the rest of your project files. Add the following code to the *order.html* file:
 
-~~~
+~~~html
 <!DOCTYPE html>
 
 <html>
@@ -416,7 +416,7 @@ Create a new file named *order.html*; save it in the same *212-Burgers* director
 
 To link to this new order.html page, go back to your index.html code and add a paragraph (`<p>`) with a nested link (`<a>`) element:
 
-~~~
+~~~html
   ...
 
     <div id="header">
@@ -433,7 +433,7 @@ To link to this new order.html page, go back to your index.html code and add a p
 
 Now add the following code to your CSS file:
 
-~~~
+~~~css
 /* button */
 
 .btn-yellow {
@@ -467,7 +467,7 @@ Footer
 
 Finally, add the footer to your index.html file:
 
-~~~
+~~~html
     ...
 
     <div id="footer">
@@ -481,7 +481,7 @@ Finally, add the footer to your index.html file:
 
 -- as well its CSS:
 
-~~~
+~~~css
 #footer {
   color: white;
   font-size: 0.8em;
