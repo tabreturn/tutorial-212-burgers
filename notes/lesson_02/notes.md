@@ -127,7 +127,7 @@ Great! You're ready to run Flask ... almost.
 
 Create a new file in your editor (Atom?), and save it in your `212-Burgers` directory as `run.py`. Add the following code:
 
-~~~
+~~~python
 from flask import Flask
 app = Flask(__name__)
 
