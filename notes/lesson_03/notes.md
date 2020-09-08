@@ -47,13 +47,13 @@ One refers to `INTEGER`, `TEXT`, and `FLOAT` as [*data types*](https://www.tutor
 
 Next, insert a single burger entry:
 
-~~~
+~~~sql
 INSERT INTO burgers(burger, price) VALUES ('Classic Burger', 4.99);
 ~~~
 
 You may wrap this line over multiple lines if it helps you. The semicolon (`;`) marks the end of any query:
 
-~~~
+~~~sql
 INSERT INTO burgers(burger, price)
 VALUES ('Classic Burger', 4.99);
 ~~~
@@ -62,19 +62,19 @@ VALUES ('Classic Burger', 4.99);
 
 To list all of the burger rows (just a single burger right now) in your burgers table, use a SELECT query:
 
-~~~
+~~~sql
 SELECT id, burger, price FROM burgers;
 ~~~
 
 The output looks like this:
 
-~~~
+~~~sql
 1|Classic Burger|4.99
 ~~~
 
 Alternatively, you may also use a wildcard selector (`*`) instead of explicitly listing all three columns:
 
-~~~
+~~~sql
 SELECT * FROM burgers;
 ~~~
 
@@ -103,7 +103,7 @@ Enter the following dot commands to reconfigure how your query results appear:
 
 You might agree that this configuration makes things more readable. For instance:
 
-~~~
+~~~sql
 sqlite> SELECT * FROM burgers;
 id          burger          price
 ----------  --------------  ----------
@@ -121,7 +121,7 @@ Now that you have some more data to work with, let's take a closer at what `SELE
 
 First, test out some arithmetic operators (`+`, `-`, `*`, `/`). How about half-price burger special?
 
-~~~
+~~~sql
 sqlite> SELECT burger, price/2 FROM burgers;
 burger          price/2
 --------------  ----------
@@ -133,7 +133,7 @@ Double Burger   3.495
 
 Or, the same query, but showing the original and discounted prices:
 
-~~~
+~~~sql
 sqlite> SELECT burger, price, price/2 FROM burgers;
 burger          price       price/2
 --------------  ----------  ----------
@@ -149,7 +149,7 @@ The comparison operators (`=`, `!=`, `>`, `<`, `>=`, `<=`, `!<`, `!>`) work with
 
 To list all of the burgers that cost **more than** 5.99, try:
 
-~~~
+~~~sql
 sqlite> SELECT * FROM burgers WHERE price > 5.99;
 id          burger         price
 ----------  -------------  ----------
@@ -158,7 +158,7 @@ id          burger         price
 
 To list every burger that costs 4.99 **or** more:
 
-~~~
+~~~sql
 sqlite> SELECT * FROM burgers WHERE price >= 4.99;
 id          burger          price
 ----------  --------------  ----------
@@ -170,7 +170,7 @@ id          burger          price
 
 To list every burger named *Classic Burger*:
 
-~~~
+~~~sql
 sqlite> SELECT * FROM burgers WHERE burger = 'Classic Burger';
 id          burger          price
 ----------  --------------  ----------
@@ -183,7 +183,7 @@ Use the `AND`, `NOT`, and `OR` to apply logic to your queries.
 
 For example, to select all of the burgers where the price is exactly 4.99 *or* 6.99:
 
-~~~
+~~~sql
 sqlite> SELECT * FROM burgers WHERE price = 4.99 OR price = 6.99;
 id          burger          price
 ----------  --------------  ----------
