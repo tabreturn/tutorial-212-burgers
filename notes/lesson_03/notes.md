@@ -325,7 +325,7 @@ To hone your SQL skills, write queries to perform the following tasks:
 SQLite GUI
 ==========
 
-Looking for a graphical way to edit your database? You can try *DB Browser for SQLite* (also known as *BB4S*). You can download this from [http://sqlitebrowser.org/](http://sqlitebrowser.org/)
+Looking for a graphical way to edit your database? You can try *DB Browser for SQLite* (also known as *DB4S*). You can download this from [http://sqlitebrowser.org/](http://sqlitebrowser.org/)
 
 ![](00-gui_db_browser.png)
 
