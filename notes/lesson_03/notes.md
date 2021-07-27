@@ -437,7 +437,7 @@ Next, replace this code:
 
 ```py
     ...
-    cur = db.execute('SELECT * FROM burgers')
+    cur = db.execute('SELECT burger,price FROM burgers')
     for row in cur:
         print(row)
     db.close()
